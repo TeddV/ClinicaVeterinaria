@@ -6,7 +6,7 @@ namespace CrudAsp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Animais()
+        public IActionResult Animass()
         {
             return View();
         }
