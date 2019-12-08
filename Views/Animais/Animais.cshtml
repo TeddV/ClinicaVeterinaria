@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CrudAsp.Models.Animal>
+
+@{
+    ViewData["Title"] = "Animais";
+}
+
+<h2>Registro de animais</h2>
+
+<p>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Raca)
+            </th>
+            <th>
+                <a asp-action="AdicionarOuEditar" class="btn btn-success"><i class= "far fa-plus-square"></i>Animal</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raca)
+            </td>
+            <td>
+                <a asp-action="AdicionarOuEditar" asp-route-id="@item.AnimalId"><i class="fa fa-marker fa-lg"></i></a> |
+                <a asp-action="Deletar" asp-route-id="@item.AnimalId" class="text-danger ml-1" onclick="return confirm
+        ('Tem certeza que deseja excluir o registro?')"><i class="fa fa-trash-alt fa-lg"></i></a></td>
+        </tr>
+}
+    </tbody>
+</table>
